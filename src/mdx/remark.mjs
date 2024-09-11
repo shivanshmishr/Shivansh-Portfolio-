@@ -12,8 +12,10 @@ function remarkMDXLayout(source, metaName) {
   return (tree) => {
     let imp = `import _Layout from '${source}'`;
     let exp = `export default function Layout(props) {
-      return <_Layout {...props} ${metaName}={${metaName}} />
+      return <_Layout {...props} />
     }`;
+
+   
 
     tree.children.push(
       {
