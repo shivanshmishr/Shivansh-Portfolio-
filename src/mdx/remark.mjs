@@ -12,7 +12,7 @@ function remarkMDXLayout(source, metaName) {
   return (tree) => {
     let imp = `import _Layout from '${source}'`;
     let exp = `export default function Layout(props) {
-      return <_Layout {...props} />
+      return <_Layout {...props} ${metaName}={${metaName}} />
     }`;
 
    
@@ -34,9 +34,9 @@ function remarkMDXLayout(source, metaName) {
 
 export const remarkPlugins = [
   remarkGfm,
-  [
-    unifiedConditional,
-    [new RegExp(`^${escapeStringRegexp(path.resolve('src/app/apps'))}`), [[remarkMDXLayout, '@/app/apps/wrapper', 'appData']]],
-    [new RegExp(`^${escapeStringRegexp(path.resolve('src/app/leetcode'))}`), [[remarkMDXLayout, '@/app/leetcode/wrapper', 'leetData']]],
-  ],
+  // [
+  //   unifiedConditional,
+  //   [new RegExp(`^${escapeStringRegexp(path.resolve('src/app/apps'))}`), [[remarkMDXLayout, '@/app/apps/wrapper', 'appData']]],
+  //   [new RegExp(`^${escapeStringRegexp(path.resolve('src/app/leetcode'))}`), [[remarkMDXLayout, '@/app/leetcode/wrapper', 'leetData']]],
+  // ],
 ];

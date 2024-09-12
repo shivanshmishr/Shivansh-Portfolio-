@@ -44,11 +44,11 @@ export interface Leetcode {
   framework: string;
 }
 
-export function loadApps() {
-  return loadEntries<App>('apps', 'appData');
-}
+// export function loadApps() {
+//   return loadEntries<App>('apps', 'appData');
+// }
 
 
-export function loadLeetcode() {
-  return loadEntries<App>('leetcode', 'leetData');
-}
+// export function loadLeetcode() {
+//   return loadEntries<App>('leetcode', 'leetData');
+// }
