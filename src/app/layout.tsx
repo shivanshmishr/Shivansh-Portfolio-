@@ -1,7 +1,7 @@
 import { ActivityBar, BottomBar, TabsContainer, TopBar } from '@/components';
 import NavigationChange from '@/components/NavigationChange';
 import TogglePortfolio from '@/components/TogglePortfolio';
-import { loadApps, loadLeetcode } from '@/lib/mdx';
+// import { loadApps, loadLeetcode } from '@/lib/mdx';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
 import { Analytics } from '@vercel/analytics/react';
@@ -9,6 +9,7 @@ import glob from 'fast-glob';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
+import { MDXEntry, App } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Shivansh Mishra Portfolio',
@@ -27,8 +28,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   const allSections = Object.fromEntries([...mdxSectionEntries, ...tsxSectionEntries]);
 
-  const allApps = await loadApps();
-  const allLeetcode = await loadLeetcode();
+  const allApps: MDXEntry<App>[] = [];
+  const allLeetcode: MDXEntry<App>[] = [];
+
 
   return (
     <Providers>
