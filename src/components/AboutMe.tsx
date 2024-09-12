@@ -29,7 +29,7 @@ export default function AboutMe() {
             <p className="mt-4 text-lg text-gray-500">After 2 years in this industry I have worked with multiple front-end and back-end technologies.</p>
           </div>
           <div className="flex-none mx-auto">
-            <Image className="rounded-full object-cover" src="/shiv.jpg" alt="" height={208} width={208} />
+            <Image className="rounded-full object-cover" src="/shivaaa.jpg" alt="" height={208} width={208} />
           </div>
         </div>
         <div className="@container">

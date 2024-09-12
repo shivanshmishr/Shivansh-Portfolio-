@@ -95,12 +95,14 @@ export default function MyWork() {
 
               {/* Image block */}
               <div className={clsx(project.full ? 'w-[50%] h-full relative overflow-hidden' : 'w-[100%] h-60 relative overflow-hidden')}>
-                <Image
-                  placeholder="blur"
-                  className="absolute w-full h-full object-cover"  // Ensure the image covers the entire space
-                  src={project.image.src}
-                  alt=""
-                />
+                <a href={project.href} target="_blank" rel="noopener noreferrer">  {/* Added anchor tag with target="_blank" */}
+                  <Image
+                    placeholder="blur"
+                    className="absolute w-full h-full object-cover"  // Ensure the image covers the entire space
+                    src={project.image.src}
+                    alt=""
+                  />
+                </a>
               </div>
             </div>
           </GlowCard>
