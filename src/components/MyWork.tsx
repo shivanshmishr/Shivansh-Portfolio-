@@ -80,25 +80,38 @@ export default function MyWork() {
         {projects.map((project) => (
           <GlowCard
             key={project.name}
-            className={clsx('hover:shadow-my_work_yellow/90', project.full ? 'h-[60vh] @2xl:h-[50vh] @3xl:col-span-2' : 'h-auto @3xl:col-span-1')}
+            className={clsx(
+              'hover:shadow-my_work_yellow/90',
+              project.full ? 'h-[60vh] @2xl:h-[50vh] @3xl:col-span-2' : 'h-auto @3xl:col-span-1'
+            )}
             glowClassName="from-[#ffdc8b] to-[#ffdc8b]"
           >
-            <div className={clsx('flex justify-between h-full', project.full ? 'flex-row' : 'flex-col')}>
-
+            <div
+              className={clsx(
+                'flex justify-between h-full',
+                project.full ? 'flex-col md:flex-row' : 'flex-col'
+              )}
+            >
               {/* Text block for both large and small divs */}
-              <div className={clsx(project.full ? 'w-[60%] p-4' : 'w-full p-4')}>
+              <div className={clsx(project.full ? 'w-full md:w-[60%] p-4' : 'w-full p-4')}>
                 <h3 className={clsx('text-xl @2xl:text-3xl text-white dark:text-white/90')}>
-                  <span className="text-2xl @2xl:text-4xl text-my_work_yellow">{project.name}</span>
+                  <span className="text-2xl @2xl:text-4xl text-my_work_yellow">
+                    {project.name}
+                  </span>
                   {project.description}
                 </h3>
               </div>
 
               {/* Image block */}
-              <div className={clsx(project.full ? 'w-[50%] h-full relative overflow-hidden' : 'w-[100%] h-60 relative overflow-hidden')}>
-                <a href={project.href} target="_blank" rel="noopener noreferrer">  {/* Added anchor tag with target="_blank" */}
+              <div
+                className={clsx(
+                  project.full ? 'w-full md:w-[50%] h-60 md:h-full relative overflow-hidden' : 'w-full h-60 relative overflow-hidden'
+                )}
+              >
+                <a href={project.href} target="_blank" rel="noopener noreferrer">
                   <Image
                     placeholder="blur"
-                    className="absolute w-full h-full object-cover"  // Ensure the image covers the entire space
+                    className="absolute w-full h-full object-cover"
                     src={project.image.src}
                     alt=""
                   />
