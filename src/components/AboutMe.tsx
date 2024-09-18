@@ -14,14 +14,10 @@ export default function AboutMe() {
         }
         title="About Me"
         description={
-          <div className="text-lg sm:text-xl">
+          <div>
             I&apos;m a <span className="text-about_me_green">software developer</span> specialized on <span className="text-about_me_green">Web Applications</span>
           </div>
         }
-
-
-
-
       />
       <Stars id="about-me" />
       <div className="@container">
