@@ -66,12 +66,30 @@ export default function WorkExperience() {
   );
 }
 
-function WorkRole({ children, title, date, image }: { children: React.ReactNode; title: string; date?: string; image: { url: string; className: string; height: number; width: number } }) {
+function WorkRole({
+  children,
+  title,
+  date,
+  image,
+}: {
+  children: React.ReactNode;
+  title: string;
+  date?: string;
+  image: { url: string; className: string; height: number; width: number };
+}) {
   return (
     <FadeIn className="flex group mt-8 first:mt-0 px-3">
       <div className="hidden @lg:flex @lg:flex-col">
-        <p className="px-4 pt-8 group-first:pt-0 text-white text-sm leading-7 min-w-[180px] max-w-[180px] @lg:min-w-[195px] @lg:max-w-[195px] @xl:max-w-[215px] @xl:min-w-[215px] flex-none">{date}</p>
-        <div className={clsx('flex-none rounded-md overflow-hidden self-center mx-4 mt-auto mb-auto', image.className)}>
+        {/* Date and logo for large screens */}
+        <p className="px-4 pt-8 group-first:pt-0 text-white text-sm leading-7 min-w-[180px] max-w-[180px] @lg:min-w-[195px] @lg:max-w-[195px] @xl:max-w-[215px] @xl:min-w-[215px] flex-none">
+          {date}
+        </p>
+        <div
+          className={clsx(
+            'flex-none rounded-md overflow-hidden self-center mx-4 mt-auto mb-auto',
+            image.className
+          )}
+        >
           <Image
             src={image.url}
             alt=""
@@ -85,8 +103,15 @@ function WorkRole({ children, title, date, image }: { children: React.ReactNode;
         </div>
       </div>
       <Border className="pt-8 group-first:pt-0 group-first:before:hidden group-first:after:hidden">
-        <div className="flex mb-4">
-          <div className={clsx('flex-none rounded-md overflow-hidden self-center ml-2 mr-4 @lg:hidden', image.className)}>
+        {/* Logo and title for smaller screens */}
+        <div className="flex flex-col @lg:flex-row mb-4 items-center">
+          {/* Hide logo in desktop view */}
+          <div
+            className={clsx(
+              'flex-none rounded-md overflow-hidden self-center ml-2 mr-4 @lg:hidden',
+              image.className
+            )}
+          >
             <Image
               src={image.url}
               alt=""
@@ -98,9 +123,12 @@ function WorkRole({ children, title, date, image }: { children: React.ReactNode;
               }}
             />
           </div>
-          <div>
-            <p className="font-semibold text-work_experience_orange text-lg">{title}</p>
-            <p className="@lg:hidden mt-2 text-white text-sm">{date}</p>
+          <div className="text-center @lg:text-left">
+            <p className="font-semibold text-work_experience_orange text-lg">
+              {title}
+            </p>
+            {/* Date only shown on mobile */}
+            <p className="mt-2 text-white text-sm @lg:hidden">{date}</p>
           </div>
         </div>
         <ul className="list-disc pl-10">{children}</ul>

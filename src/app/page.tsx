@@ -108,7 +108,7 @@ export default function Index() {
         <Container>
           <div className="min-h-screen relative">
             <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
-              <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl">
+              <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl md:text-[6vw] lg:text-[5vw]">
                 Shivansh Mishra<span className="wave">👋</span>
               </h1>
               <div className="flex mt-3 mb-1">
