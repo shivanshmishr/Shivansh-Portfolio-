@@ -46,7 +46,8 @@ const skillsTitles: Record<SkillCategory, string> = {
 };
 
 export default function Skills() {
-  const [activeSkill, setActiveSkill] = useState<SkillCategory>('Languages');
+  // Define the type of activeSkill as keyof typeof skillsTitles
+  const [activeSkill, setActiveSkill] = useState<keyof typeof skillsTitles>('Languages');
   const controls = useAnimationControls();
 
   const handleChangeSkill = async (e: any) => {
@@ -61,7 +62,9 @@ export default function Skills() {
     <div className="@container">
       <FadeInStagger animate={controls} className="relative z-10 grid grid-cols-3 @lg:grid-cols-4 mt-20 @2xl:grid-cols-5 @3xl:grid-cols-6 @4xl:grid-cols-8" faster>
         <div className="row-start-4 col-span-3 h-[115px] flex items-center justify-center @2xl:col-start-4 @2xl:row-start-1 @3xl:col-start-4 @4xl:col-start-4 @4xl:col-span-5 @3xl:justify-start @2xl:h-[40px] @3xl:mt-auto">
-          <h2 className="text-center text-3xl font-semibold md:text-4xl lg:text-5xl">{skillsTitles[activeSkill]}</h2>
+          <h2 className="text-center text-3xl font-semibold md:text-4xl lg:text-5xl">
+            {skillsTitles[activeSkill]}
+          </h2>
         </div>
         <div className="skills-picker w-[80vw] h-[80vw] md:w-[60vw] md:h-[60vw] xl:w-[325px] xl:h-[325px] col-span-3 row-span-3 place-self-center isolate">
           <div className="rounded-full inset-6 absolute grid grid-cols-2 p-2 gap-2 rotate-45">
