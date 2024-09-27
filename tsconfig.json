@@ -9,21 +9,31 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "esnext", 
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".", // Set baseUrl to the root of your project
+    "paths": {
+      "@/*": ["./src/*"], // Keep paths relative to baseUrl
+      "*": ["./node_modules/@types", "./src/types/*"] // Relative to baseUrl
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/**/*.tsx", "src/lib/providers.js", "src/icons/split-vertical-untoggled.jsx", "src/app/page.js", "src/components/NEw.jsx", "src/lib/leetcode/two-pointers.js", "src/lib/generateLeetcodeMdx.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/types/**/*.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
