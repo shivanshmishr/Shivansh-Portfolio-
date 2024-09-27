@@ -1,3 +1,4 @@
+@ts-ignore
 import nodemailer from 'nodemailer';
 
 
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
            <p><strong>Name:</strong> ${body.person_name}</p>
            <p><strong>Email:</strong> ${body.email}</p>
            <p><strong>Company:</strong> ${body.company}</p>
-           <p><strong>Message:</strong> ${body.message}</p>`, // HTML body content
+           <p><strong>Type a message :</strong> ${body.message}</p>`, // HTML body content
   };
 
   // Send mail with defined transport object
